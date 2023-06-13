@@ -130,7 +130,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            loadForm(new ListAccount(this));
+            loadForm(new AccountListForm(this));
         }
 
 
@@ -141,7 +141,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void Mainform_Load(object sender, EventArgs e)
         {
-            loadForm(new ListAccount(this));
+            loadForm(new AccountListForm(this));
 
         }
 
@@ -162,18 +162,18 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
-            loadForm(new ListCanbo(this));
+            loadForm(new StaffListForm(this));
         }
 
         private void nangluongBtn_Click(object sender, EventArgs e)
         {
-            loadForm(new RaiseSalary(this));
+            loadForm(new RaiseSalaryForm(this));
         }
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
-            KhenThuongForm kt = new KhenThuongForm(this);
-            loadForm(new KhenThuongForm(this));
+            RewardForm kt = new RewardForm(this);
+            loadForm(new RewardForm(this));
         }
 
         private void iconButton6_Click(object sender, EventArgs e)

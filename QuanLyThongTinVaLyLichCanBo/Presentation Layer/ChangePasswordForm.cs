@@ -14,20 +14,20 @@ using System.Windows.Forms;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class ChangePassword : Form
+    public partial class ChangePasswordForm : Form
     {
-        private readonly ListAccount _parent;
-        private readonly MainFormUser _parent_2;
+        private readonly AccountListForm _parent;
+        private readonly MainUserForm _parent_2;
         public string password, username;
         public bool isAdmin;
 
-        public ChangePassword(ListAccount parent)
+        public ChangePasswordForm(AccountListForm parent)
         {
             InitializeComponent();
             _parent = parent;
         }
 
-        public ChangePassword(MainFormUser parent)
+        public ChangePasswordForm(MainUserForm parent)
         {
             InitializeComponent();
             _parent_2 = parent;

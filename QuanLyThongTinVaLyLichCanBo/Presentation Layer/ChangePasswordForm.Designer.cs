@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class ChangePassword
+    partial class ChangePasswordForm
     {
         /// <summary>
         /// Required designer variable.

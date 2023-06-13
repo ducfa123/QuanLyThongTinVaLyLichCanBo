@@ -15,13 +15,13 @@ using System.Windows.Forms;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class MainFormUser : Form
+    public partial class MainUserForm : Form
     {
         public int macanbo;
         public bool isThoat = true;
-        public ChangePassword npw;
+        public ChangePasswordForm npw;
 
-        public MainFormUser()
+        public MainUserForm()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            CanBoInfomation cbi = new CanBoInfomation();
+            StaffInformationForm cbi = new StaffInformationForm();
             using (SqlConnection con = Connection.GetSqlConnection())
             {
                 con.Open();
@@ -437,7 +437,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void changePassBtn_Click(object sender, EventArgs e)
         {
-             npw = new ChangePassword(this);
+             npw = new ChangePasswordForm(this);
             using (SqlConnection con = Connection.GetSqlConnection())
             {
                 con.Open();
@@ -463,7 +463,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void MainFormUser_Load(object sender, EventArgs e)
         {
-            CanBoInfomation cbi = new CanBoInfomation();
+            StaffInformationForm cbi = new StaffInformationForm();
             using (SqlConnection con = Connection.GetSqlConnection())
             {
                 con.Open();

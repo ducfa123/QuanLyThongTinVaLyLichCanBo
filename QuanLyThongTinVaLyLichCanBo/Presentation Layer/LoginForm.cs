@@ -113,7 +113,7 @@ namespace QuanLyThongTinVaLyLichCanBo
                                     }
                                     else if (Role == "Can Bo")
                                     {
-                                        MainFormUser mfu = new MainFormUser();
+                                        MainUserForm mfu = new MainUserForm();
                                         mfu.macanbo =  reader.GetInt32(2);
                                         mfu.Show();
                                         this.Hide();
@@ -137,8 +137,8 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void Mfu_Logout(object? sender, EventArgs e)
         {
-            (sender as MainFormUser).isThoat = false;
-            (sender as MainFormUser).Close();
+            (sender as MainUserForm).isThoat = false;
+            (sender as MainUserForm).Close();
             this.Show();
         }
         private void Mf_Logout(object? sender, EventArgs e)

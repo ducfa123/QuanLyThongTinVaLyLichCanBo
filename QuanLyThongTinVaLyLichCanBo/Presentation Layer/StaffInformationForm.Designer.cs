@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class CanBoInfomation
+    partial class StaffInformationForm
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class MainFormUser
+    partial class MainUserForm
     {
         /// <summary>
         /// Required designer variable.

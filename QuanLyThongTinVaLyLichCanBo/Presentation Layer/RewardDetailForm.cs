@@ -16,9 +16,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class ChiTietThiDuaKhenThuongKyLuat : Form
+    public partial class RewardDetailForm : Form
     {
-        private readonly KhenThuongForm _parent;
+        private readonly RewardForm _parent;
 
         public int macanbo;
         public string HinhThuc, SoQuyetDinh, CoQuanBanHanh, NoiDung;
@@ -36,7 +36,7 @@ namespace QuanLyThongTinVaLyLichCanBo
         public int MaKyLuat, ThoiGianKeoDai;
         public string HinhThucKyLuat, SoQuyetDinhKyLuat, CoQuanBanHanhKyLuat, NoiDungKyLuat;
         public DateTime NamKyLuat;
-        public ChiTietThiDuaKhenThuongKyLuat(KhenThuongForm parent)
+        public RewardDetailForm(RewardForm parent)
         {
 
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
             DataGridViewColumn nam = dtThidua.Columns["dataGridViewTextBoxColumn16"];
             nam.DefaultCellStyle.Format = "yyyy";
-            ThiduaController.DisplayAndSearchThidua("SELECT MaThiDua , SoQuyetDinh, Nam, HinhThuc, CoQuanBanHanh, NoiDung, MucKhenThuong FROM ThiDua WHERE MaCanBo = @macanbo", macanbo, dtThidua);
+            DbThidua.DisplayAndSearchThidua("SELECT MaThiDua , SoQuyetDinh, Nam, HinhThuc, CoQuanBanHanh, NoiDung, MucKhenThuong FROM ThiDua WHERE MaCanBo = @macanbo", macanbo, dtThidua);
 
 
 
@@ -74,7 +74,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             DataGridViewColumn nam = dtKhenthuong.Columns["dataGridViewTextBoxColumn3"];
             nam.DefaultCellStyle.Format = "yyyy";
 
-            KhenthuongController.DisplayAndSearchKhenThuong("SELECT MaKhenThuong, SoQuyetDinh, Nam, HinhThuc, CoQuanBanHanh, NoiDung, MucKhenThuong FROM KhenThuong WHERE MaCanBo = @macanbo", macanbo, dtKhenthuong);
+            DbKhenthuong.DisplayAndSearchKhenThuong("SELECT MaKhenThuong, SoQuyetDinh, Nam, HinhThuc, CoQuanBanHanh, NoiDung, MucKhenThuong FROM KhenThuong WHERE MaCanBo = @macanbo", macanbo, dtKhenthuong);
 
 
         }
@@ -82,13 +82,13 @@ namespace QuanLyThongTinVaLyLichCanBo
         {
             DataGridViewColumn ngayky = dtKyluat.Columns["dataGridViewTextBoxColumn7"];
             ngayky.DefaultCellStyle.Format = "yyyy";
-            KyluatController.DisplayAndSearchKyluat("SELECT MaKyLuat, HinhThucKyLuat, SoQuyetDinh, Nam, ThoiGianKeoDai, CoQuanBanHanh, NoiDung FROM KyLuat WHERE MaCanBo = @macanbo", macanbo, dtKyluat);
+            DbKyluat.DisplayAndSearchKyluat("SELECT MaKyLuat, HinhThucKyLuat, SoQuyetDinh, Nam, ThoiGianKeoDai, CoQuanBanHanh, NoiDung FROM KyLuat WHERE MaCanBo = @macanbo", macanbo, dtKyluat);
         }
         public void DisplayDanhGia()
         {
             DataGridViewColumn nam = dtDanhgia.Columns["dataGridViewTextBoxColumn12"];
             nam.DefaultCellStyle.Format = "yyyy";
-            DanhgiaController.DisplayAndSearchDanhGia("SELECT MaDanhGia, Nam, LoaiDanhGia, NoiDung FROM DanhGia WHERE MaCanBo = @macanbo", macanbo, dtDanhgia);
+            DbDanhgia.DisplayAndSearchDanhGia("SELECT MaDanhGia, Nam, LoaiDanhGia, NoiDung FROM DanhGia WHERE MaCanBo = @macanbo", macanbo, dtDanhgia);
 
         }
         public void ClearKhenThuong()
@@ -197,7 +197,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 KhenThuong kt = new KhenThuong(HinhThuc, SoQuyetDinh, CoQuanBanHanh, NoiDung, MucKhenThuong, macanbo, Nam, NgayKy);
-                KhenthuongController.addKhenThuong(kt);
+                DbKhenthuong.addKhenThuong(kt);
                 ClearKhenThuong();
                 DisplayKhenThuong();
 
@@ -231,7 +231,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
                 KhenThuong kt = new KhenThuong(HinhThuc, SoQuyetDinh, CoQuanBanHanh, NoiDung, MucKhenThuong, macanbo, Nam, NgayKy);
                 MessageBox.Show(MaKhenThuong.ToString());
-                KhenthuongController.updateKhenThuong(kt, MaKhenThuong);
+                DbKhenthuong.updateKhenThuong(kt, MaKhenThuong);
 
 
                 ClearKhenThuong();
@@ -299,7 +299,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             {
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa thông tin khen thưởng này?", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    KhenthuongController.DeleteKhenThuong(dtKhenthuong.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    DbKhenthuong.DeleteKhenThuong(dtKhenthuong.Rows[e.RowIndex].Cells[2].Value.ToString());
                     DisplayKhenThuong();
                 }
                 return;
@@ -348,7 +348,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 DanhGia dg = new DanhGia(LoaiDanhGia, NoiDungDanhGia, macanbo, NamDanhGia);
-                DanhgiaController.updateDanhgia(dg, MaDanhGia);
+                DbDanhgia.updateDanhgia(dg, MaDanhGia);
 
 
                 ClearDanhGia();
@@ -376,7 +376,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 DanhGia dg = new DanhGia(LoaiDanhGia, NoiDungDanhGia, macanbo, NamDanhGia);
-                DanhgiaController.addDanhgia(dg);
+                DbDanhgia.addDanhgia(dg);
                 ClearDanhGia();
                 DisplayDanhGia();
 
@@ -429,7 +429,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 Thidua kt = new Thidua(HinhThucThiDua, SoQuyetDinhThiDua, CoQuanBanHanhThiDua, NoiDungThiDua, MucKhenThuongThiDua, macanbo, NamThiDua, NgayKyThiDua);
-                ThiduaController.addThidua(kt);
+                DbThidua.addThidua(kt);
                 ClearThidua();
                 DisplayThiDua();
 
@@ -460,7 +460,7 @@ namespace QuanLyThongTinVaLyLichCanBo
                 int.TryParse(muckhenthuongtdIn.Text, out MucKhenThuongThiDua);
 
                 Thidua kt = new Thidua(HinhThucThiDua, SoQuyetDinhThiDua, CoQuanBanHanhThiDua, NoiDungThiDua, MucKhenThuongThiDua, macanbo, NamThiDua, NgayKyThiDua);
-                ThiduaController.updateThidua(kt, MaThiDua);
+                DbThidua.updateThidua(kt, MaThiDua);
                 ClearThidua();
                 DisplayThiDua();
             }
@@ -518,7 +518,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             {
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa thông tin thi đua này?", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    ThiduaController.DeleteThidua(dtThidua.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    DbThidua.DeleteThidua(dtThidua.Rows[e.RowIndex].Cells[2].Value.ToString());
                     DisplayThiDua();
                 }
                 return;
@@ -567,7 +567,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             {
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa thông tin kỷ luật này?", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    KyluatController.DeleteKyluat(dtKyluat.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    DbKyluat.DeleteKyluat(dtKyluat.Rows[e.RowIndex].Cells[2].Value.ToString());
                     DisplayKyLuat();
                 }
                 return;
@@ -611,7 +611,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             {
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa thông tin đánh giá này?", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    DanhgiaController.DeleteDanhgia(dtDanhgia.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    DbDanhgia.DeleteDanhgia(dtDanhgia.Rows[e.RowIndex].Cells[2].Value.ToString());
                     DisplayDanhGia();
                 }
                 return;
@@ -641,7 +641,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 Kyluat kt = new Kyluat(HinhThucKyLuat, SoQuyetDinhKyLuat, CoQuanBanHanhKyLuat, NoiDungKyLuat, macanbo, ThoiGianKeoDai, NamKyLuat);
-                KyluatController.addKyluat(kt);
+                DbKyluat.addKyluat(kt);
                 ClearKyLuat();
                 DisplayKyLuat();
 
@@ -671,7 +671,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
 
                 Kyluat kt = new Kyluat(HinhThucKyLuat, SoQuyetDinhKyLuat, CoQuanBanHanhKyLuat, NoiDungKyLuat, macanbo, ThoiGianKeoDai, NamKyLuat);
-                KyluatController.updateKyluat(kt, MaKyLuat);
+                DbKyluat.updateKyluat(kt, MaKyLuat);
                 ClearKyLuat();
                 DisplayKyLuat();
             }

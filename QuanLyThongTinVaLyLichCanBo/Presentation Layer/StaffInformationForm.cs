@@ -23,9 +23,9 @@ using System.Windows.Documents;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class CanBoInfomation : Form
+    public partial class StaffInformationForm : Form
     {
-        private readonly ListCanbo _parent;
+        private readonly StaffListForm _parent;
         public byte[] image;
         public string imgpath, fullname, dantoc, tongiao, gioitinh, hokhau, othername, noisinh, quequan, noio, nghenghiep, coquan, chucvu, quanham, danhhieu, khenthuong, kyluat, chieucao, nghachcongchuc, tenngach, cannang, nhommau, hangthuongbinh, giadinhchinhsach, socmnd, mabhxh;
         public DateTime dtngaytuyendung, dtngaysinh, dtngaybonhiem, dtngayvaodang, dtngaychinhthuc, dtngaynhapngu, dtngayxuatngu, dtngaycapcmnd;
@@ -1548,11 +1548,11 @@ namespace QuanLyThongTinVaLyLichCanBo
             ngayxuatnguIn.Value = dtngayxuatngu;
             ngaycapCMNDIn.Value = dtngaycapcmnd;
         }
-        public CanBoInfomation()
+        public StaffInformationForm()
         {
             InitializeComponent();
         }
-        public CanBoInfomation(ListCanbo parent)
+        public StaffInformationForm(StaffListForm parent)
         {
             InitializeComponent();
             _parent = parent;

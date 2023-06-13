@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class Register
+    partial class RegisterForm
     {
         /// <summary>
         /// Required designer variable.
