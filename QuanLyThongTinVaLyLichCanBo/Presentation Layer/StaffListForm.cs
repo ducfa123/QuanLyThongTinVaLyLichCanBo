@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class ListCanbo : Form
+    public partial class StaffListForm : Form
     {
         private readonly MainForm _parent;
         private DataTable originalDataTable; // Biến tạm để lưu trữ dữ liệu ban đầu
@@ -28,12 +28,12 @@ namespace QuanLyThongTinVaLyLichCanBo
         private int totalRecords; // Số lượng bản ghi tổng cộng
         private int totalPages; // Tính tổng số trang
         private int totalFilteredRecords;
-        CanBoInfomation tt;
-        public ListCanbo(MainForm parent)
+        StaffInformationForm tt;
+        public StaffListForm(MainForm parent)
         {
             InitializeComponent();
             _parent = parent;
-            tt = new CanBoInfomation(this);
+            tt = new StaffInformationForm(this);
         }
 
         private void ListCanbo_Load(object sender, EventArgs e)
@@ -894,7 +894,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            _parent.loadForm(new ListCanbo(_parent));
+            _parent.loadForm(new StaffListForm(_parent));
             this.Close();
         }
         private void selectDisplay()

@@ -8,9 +8,15 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
 {
     internal class KhenThuong
     {
-        public string HinhThuc, SoQuyetDinh, CoQuanBanHanh, NoiDung;
-        public int MaKhenThuong, MucKhenThuong, MaCanBo;
-        public DateTime Nam,NgayKy;
+        public  string HinhThuc { get; set; }
+        public string SoQuyetDinh { get; set; }
+        public string CoQuanBanHanh { get; set; }
+        public string NoiDung { get; set; }
+        public int MaKhenThuong { get; set; }
+        public int MucKhenThuong { get; set ; }
+        public int MaCanBo { get; set; }
+        public DateTime Nam { get; set; }
+        public DateTime NgayKy { get; set; }
 
         public KhenThuong(string hinhThuc, string soQuyetDinh, string coQuanBanHanh, string noiDung, int mucKhenThuong, int maCanBo, DateTime nam, DateTime ngayKy)
         {

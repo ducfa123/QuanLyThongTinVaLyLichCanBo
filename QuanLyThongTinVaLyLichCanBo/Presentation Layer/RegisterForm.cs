@@ -17,11 +17,11 @@ using System.Windows.Forms;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class Register : Form
+    public partial class RegisterForm : Form
     {
-        private readonly ListAccount _parent;
+        private readonly AccountListForm _parent;
         public string username, password, password2, email, phonenumber, type;
-        public Register(ListAccount parent)
+        public RegisterForm(AccountListForm parent)
         {
             _parent = parent;
             InitializeComponent();
@@ -164,7 +164,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             try
             {
 
-                Account acc = new Account(username, password, phonenumber, email, tencanbo);
+                User acc = new User(username, password, phonenumber, email, tencanbo);
                 DbAccount.addAccount(acc);
                 Clear();
 

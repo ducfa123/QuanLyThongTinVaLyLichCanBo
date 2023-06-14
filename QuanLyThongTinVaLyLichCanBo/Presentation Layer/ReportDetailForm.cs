@@ -16,9 +16,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class RewardDetailForm : Form
+    public partial class ReportDetailForm : Form
     {
-        private readonly RewardForm _parent;
+        private readonly ReportForm _parent;
 
         public int macanbo;
         public string HinhThuc, SoQuyetDinh, CoQuanBanHanh, NoiDung;
@@ -36,7 +36,7 @@ namespace QuanLyThongTinVaLyLichCanBo
         public int MaKyLuat, ThoiGianKeoDai;
         public string HinhThucKyLuat, SoQuyetDinhKyLuat, CoQuanBanHanhKyLuat, NoiDungKyLuat;
         public DateTime NamKyLuat;
-        public RewardDetailForm(RewardForm parent)
+        public ReportDetailForm(ReportForm parent)
         {
 
             InitializeComponent();

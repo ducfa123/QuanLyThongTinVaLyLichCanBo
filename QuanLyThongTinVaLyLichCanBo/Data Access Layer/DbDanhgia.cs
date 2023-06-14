@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyThongTinVaLyLichCanBo.Class
 {
-    internal class DanhgiaController
+    internal class DbDanhgia
     {
         public static void addDanhgia(DanhGia dg)
         {

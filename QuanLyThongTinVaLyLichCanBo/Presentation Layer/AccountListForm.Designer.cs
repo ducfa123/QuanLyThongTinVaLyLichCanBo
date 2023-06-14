@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class ListAccount
+    partial class AccountListForm
     {
         /// <summary>
         /// Required designer variable.

@@ -6,40 +6,43 @@ using System.Threading.Tasks;
 
 namespace QuanLyThongTinVaLyLichCanBo.Class.Model
 {
-    internal class Account
+    internal class User
     {
-        public string username;
-        public string password;
-        public string phonenumber;
-        public string email;
-        public string tencanbo;
-        public Account()
+        protected string username;
+        public string Username { get => username; set => username = value; }
+        protected string password; 
+        public string Password{ get => password; set => password = value; }
+        protected string phonenumber; 
+        public string Phonenumber { get => phonenumber; set => phonenumber = value; }
+        protected string email; 
+        public string Email { get => email; set => email = value; }
+        protected string tencanbo;
+        public string Tencanbo { get => tencanbo; set => tencanbo = value; }
+        public User()
         {
 
 
         }
-        public Account(string username, string password)
+        public User(string username, string password)
         {
             this.username = username;
             this.password = password;
         }
-        public Account(string username, string password, string phonenumber, string email)
+        public User(string username, string password, string phonenumber, string email)
         {
-            Username = username;
-            Password = password;
+            this.username = username;
+            this.password = password;
             this.phonenumber = phonenumber;
             this.email = email;
         }
-        public Account(string username, string password, string phonenumber, string email, string tencanbo)
+        public User(string username, string password, string phonenumber, string email, string tencanbo)
         {
-            Username = username;
-            Password = password;
+            this.username = username;
+            this.password = password;
             this.phonenumber = phonenumber;
             this.email = email;
             this.tencanbo = tencanbo;
         }
 
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
     }
 }

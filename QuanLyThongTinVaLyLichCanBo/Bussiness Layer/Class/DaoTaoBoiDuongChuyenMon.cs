@@ -8,6 +8,7 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
 {
     internal class DaoTaoBoiDuongChuyenMon
     {
+
         public DaoTaoBoiDuongChuyenMon(string tenTruong, string chuyenNghanhDaoTao, string hinhThucDaoTao, string vanBang, DateTime thoiGianBatDauDaoTao, DateTime thoiGianKetThucDaoTao, int maCanBo)
         {
             TenTruong = tenTruong;

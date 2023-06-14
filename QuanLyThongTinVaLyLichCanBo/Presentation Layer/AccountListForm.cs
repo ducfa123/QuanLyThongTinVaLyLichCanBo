@@ -16,7 +16,7 @@ using Color = System.Drawing.Color;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class ListAccount : Form
+    public partial class AccountListForm : Form
     {
         private readonly MainForm _parent;
         private DataTable originalDataTable; // Biến tạm để lưu trữ dữ liệu ban đầu
@@ -26,16 +26,16 @@ namespace QuanLyThongTinVaLyLichCanBo
         private int totalRecords; // Số lượng bản ghi tổng cộng
         private int totalPages; // Tính tổng số trang
         private int totalFilteredRecords;
-        CanBoInfomation tt;
+        StaffInformationForm tt;
 
-        Register dk;
-        ChangePassword cpw;
-        public ListAccount(MainForm parent)
+        RegisterForm dk;
+        ChangePasswordForm cpw;
+        public AccountListForm(MainForm parent)
         {
             InitializeComponent();
             _parent = parent;
-            dk = new Register(this);
-            cpw = new ChangePassword(this);
+            dk = new RegisterForm(this);
+            cpw = new ChangePasswordForm(this);
         }
         private void setButtonIsChoose(int pageIndex, Color textColor, Color backColor)
         {
@@ -419,7 +419,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            _parent.loadForm(new ListAccount(_parent));
+            _parent.loadForm(new AccountListForm(_parent));
             this.Close();
         }
         private void selectDisplay()

@@ -14,9 +14,9 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
         public Modify() { }
         SqlCommand cmd;
         SqlDataReader reader;
-        public List<Account> Accounts(string query)
+        public List<User> Accounts(string query)
         {
-            List<Account> acc = new List<Account>();
+            List<User> acc = new List<User>();
             using (SqlConnection sqlConnection = Connection.GetSqlConnection())
             {
                 sqlConnection.Open();
@@ -24,7 +24,7 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    acc.Add(new Account(reader.GetString(1), reader.GetString(2)));
+                    acc.Add(new User(reader.GetString(1), reader.GetString(2)));
                 }
                 sqlConnection.Close();
             }

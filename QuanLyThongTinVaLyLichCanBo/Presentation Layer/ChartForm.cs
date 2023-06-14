@@ -13,6 +13,13 @@ using LiveCharts;
 using System.Windows.Media;
 using LiveCharts.WinForms;
 using LiveCharts.Defaults;
+using LiveCharts.Configurations;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System.Windows.Media.Imaging;
+using System.Drawing.Imaging;
+using OxyPlot;
+using ImageFormat = System.Drawing.Imaging.ImageFormat;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
@@ -81,15 +88,15 @@ namespace QuanLyThongTinVaLyLichCanBo
                 scatterSeries
             };
             // Cấu hình CartesianChart
-            cartesianChart2.Series = seriesCollection;
-            cartesianChart2.AxisX.Add(new LiveCharts.Wpf.Axis
+            healchart.Series = seriesCollection;
+            healchart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Chiều cao",
                 Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0)),
                 FontFamily = new System.Windows.Media.FontFamily("Segoe UI"),
                 FontSize = 12,
             });
-            cartesianChart2.AxisY.Add(new LiveCharts.Wpf.Axis
+            healchart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Cân nặng",
                 Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0)),
@@ -184,18 +191,18 @@ namespace QuanLyThongTinVaLyLichCanBo
             int maxValue = statistics.Values.Max() + 3; // Tìm giá trị lớn nhất trong danh sách
             List<int> yLabels = Enumerable.Range(0, maxValue + 1).ToList();
 
-            cartesianChart1.Series = new SeriesCollection
+            tuoiChart.Series = new SeriesCollection
             {
                 new ColumnSeries
                 {
                     Title = "Cán bộ",
                     Values =  new ChartValues<int>(sortedStatistics.Values),
                     Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb(20, 186, 26))
-                    
+
                 }
             };
 
-            cartesianChart1.AxisX.Add(new LiveCharts.Wpf.Axis
+            tuoiChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Nhóm Tuổi",
                 Labels = sortedStatistics.Keys.ToArray(),
@@ -205,7 +212,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             });
 
 
-            cartesianChart1.AxisY.Add(new LiveCharts.Wpf.Axis
+            tuoiChart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Số Lượng Cán Bộ",
                 Foreground = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0)),
@@ -213,7 +220,7 @@ namespace QuanLyThongTinVaLyLichCanBo
                 FontSize = 12,
                 MaxValue = maxValue, // Thiết lập giá trị tối đa của trục Y, có thể thêm một giá trị dự phòng (ví dụ: +10) để đảm bảo trục Y hiển thị đủ khoảng trị giá trị
                 Labels = yLabels.Select(label => label.ToString()).ToList(), // Chuyển danh sách số nguyên thành danh sách các chuỗi để hiển thị trên trục Y
-                 MinValue = 0,
+                MinValue = 0,
 
             });
 
@@ -249,8 +256,8 @@ namespace QuanLyThongTinVaLyLichCanBo
                 Values = new ChartValues<double> { Math.Round(otherPercent, 2) },
                 DataLabels = true
             });
-            pieChart1.Series = seriesCollection;
-            pieChart1.LegendLocation = LegendLocation.Right;
+            gioitinhChart.Series = seriesCollection;
+            gioitinhChart.LegendLocation = LegendLocation.Right;
 
         }
 
@@ -296,8 +303,8 @@ namespace QuanLyThongTinVaLyLichCanBo
             seriesCollection.Add(columnSeries);
 
             // Cấu hình CartesianChart
-            cartesianChart3.Series = seriesCollection;
-            cartesianChart3.AxisX.Add(new LiveCharts.Wpf.Axis
+            dantocChart.Series = seriesCollection;
+            dantocChart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Dân tộc",
                 Labels = ethnicities,
@@ -305,7 +312,7 @@ namespace QuanLyThongTinVaLyLichCanBo
                 FontFamily = new System.Windows.Media.FontFamily("Segoe UI"),
                 FontSize = 12,
             });
-            cartesianChart3.AxisY.Add(new LiveCharts.Wpf.Axis
+            dantocChart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Số lượng",
                 LabelFormatter = value => value.ToString(),
@@ -335,6 +342,122 @@ namespace QuanLyThongTinVaLyLichCanBo
             //{
             //    DisplayDanToc();
             //}
+        }
+        private void xuatPDF_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xuất hình ảnh biểu đồ này? ", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                var oldWidth = healchart.Width;
+                var oldHeight = healchart.Height;
+                // Thiết lập kích thước và vùng chụp hình
+                var chartWidth = 1600;
+                var chartHeight = 720;
+                var imageRect = new Rectangle(0, 0, chartWidth, chartHeight);
+
+                // Tạo hình ảnh bitmap
+                var bitmap = new Bitmap(chartWidth, chartHeight);
+                var graphics = Graphics.FromImage(bitmap);
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Vẽ biểu đồ lên hình ảnh
+                healchart.Size = new Size(chartWidth, chartHeight);
+                healchart.Update();
+                healchart.DrawToBitmap(bitmap, imageRect);
+                // Lưu hình ảnh vào file
+                bitmap.Save(Constant.filePathPNG, ImageFormat.Png);
+                healchart.Size = new Size(oldWidth, oldHeight);
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void xuatPdfBtn1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xuất hình ảnh biểu đồ này? ", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                var oldWidth = gioitinhChart.Width;
+                var oldHeight = gioitinhChart.Height;
+                // Thiết lập kích thước và vùng chụp hình
+                var chartWidth = 1600;
+                var chartHeight = 720;
+                var imageRect = new Rectangle(0, 0, chartWidth, chartHeight);
+
+                // Tạo hình ảnh bitmap
+                var bitmap = new Bitmap(chartWidth, chartHeight);
+                var graphics = Graphics.FromImage(bitmap);
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Vẽ biểu đồ lên hình ảnh
+                gioitinhChart.Size = new Size(chartWidth, chartHeight);
+                gioitinhChart.Update();
+                gioitinhChart.DrawToBitmap(bitmap, imageRect);
+                // Lưu hình ảnh vào file
+                bitmap.Save(Constant.filePathPNG, ImageFormat.Png);
+                gioitinhChart.Size = new Size(oldWidth, oldHeight);
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+        }
+
+
+        private void xuatPdfBtn2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xuất hình ảnh  biểu đồ này? ", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var oldWidth = tuoiChart.Width;
+                var oldHeight = tuoiChart.Height;
+                // Thiết lập kích thước và vùng chụp hình
+                var chartWidth = 1600;
+                var chartHeight = 720;
+                var imageRect = new Rectangle(0, 0, chartWidth, chartHeight);
+
+                // Tạo hình ảnh bitmap
+                var bitmap = new Bitmap(chartWidth, chartHeight);
+                var graphics = Graphics.FromImage(bitmap);
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Vẽ biểu đồ lên hình ảnh
+                tuoiChart.Size = new Size(chartWidth, chartHeight);
+                tuoiChart.Update();
+                tuoiChart.DrawToBitmap(bitmap, imageRect);
+                // Lưu hình ảnh vào file
+                bitmap.Save(Constant.filePathPNG, ImageFormat.Png);
+                tuoiChart.Size = new Size(oldWidth, oldHeight);
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void xuatPdf4_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xuất hình ảnh biểu đồ này? ", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                var oldWidth = dantocChart.Width;
+                var oldHeight = dantocChart.Height;
+                // Thiết lập kích thước và vùng chụp hình
+                var chartWidth = 1600;
+                var chartHeight = 720;
+                var imageRect = new Rectangle(0, 0, chartWidth, chartHeight);
+
+                // Tạo hình ảnh bitmap
+                var bitmap = new Bitmap(chartWidth, chartHeight);
+                var graphics = Graphics.FromImage(bitmap);
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                // Vẽ biểu đồ lên hình ảnh
+                dantocChart.Size = new Size(chartWidth, chartHeight);
+                dantocChart.Update();
+                dantocChart.DrawToBitmap(bitmap, imageRect);
+                // Lưu hình ảnh vào file
+                bitmap.Save(Constant.filePathPNG, ImageFormat.Png);
+                dantocChart.Size = new Size(oldWidth, oldHeight);
+                MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

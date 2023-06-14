@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class ListQTLuong
+    partial class RaiseSalaryDetailForm
     {
         /// <summary>
         /// Required designer variable.

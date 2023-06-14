@@ -12,7 +12,7 @@ using Connection = QuanLyThongTinVaLyLichCanBo.Class.Connection;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class KhenThuongForm : Form
+    public partial class ReportForm : Form
     {
         private readonly MainForm _parent;
         public int macanbo;
@@ -23,7 +23,7 @@ namespace QuanLyThongTinVaLyLichCanBo
         private int totalRecords; // Số lượng bản ghi tổng cộng
         private int totalPages; // Tính tổng số trang
         private int totalFilteredRecords;
-        public KhenThuongForm(MainForm parent)
+        public ReportForm(MainForm parent)
         {
 
             InitializeComponent();
@@ -503,7 +503,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
                 if (dtBaocao.Columns[e.ColumnIndex].Name == "Column7")
                 {
-                    ChiTietThiDuaKhenThuongKyLuat cttdktkl = new ChiTietThiDuaKhenThuongKyLuat(this);
+                    ReportDetailForm cttdktkl = new ReportDetailForm(this);
 
                     //int.TryParse(ToString(), out cttdktkl.macanbo);
                     if (comboBox1.SelectedIndex == -1 && pickyearCBB.SelectedIndex == -1)
@@ -792,23 +792,23 @@ namespace QuanLyThongTinVaLyLichCanBo
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    ModifyAndSaveExcelFile("C:\\Users\\WINDOWS 10\\Documents\\template.xlsx", "C:\\Users\\WINDOWS 10\\Documents\\thidua - Copy.xlsx", namIn.Value.Year);
+                    ModifyAndSaveExcelFile(Constant.filePathExcelTemplate, Constant.filePathExcelThiDua, namIn.Value.Year);
                     return;
                 }
                 else if (comboBox1.SelectedIndex == 1)
                 {
-                    ModifyAndSaveExcelFile("C:\\Users\\WINDOWS 10\\Documents\\template.xlsx", "C:\\Users\\WINDOWS 10\\Documents\\khenthuong - Copy.xlsx", namIn.Value.Year);
+                    ModifyAndSaveExcelFile(Constant.filePathExcelTemplate, Constant.filePathExcelKhenThuong, namIn.Value.Year);
                     return;
                 }
                 else if (comboBox1.SelectedIndex == 2)
                 {
-                    ModifyAndSaveExcelFile("C:\\Users\\WINDOWS 10\\Documents\\template.xlsx", "C:\\Users\\WINDOWS 10\\Documents\\kyluat - Copy.xlsx", namIn.Value.Year);
+                    ModifyAndSaveExcelFile(Constant.filePathExcelTemplate, Constant.filePathExcelKyLuat, namIn.Value.Year);
                     return;
 
                 }
                 else if (comboBox1.SelectedIndex == 3)
                 {
-                    ModifyAndSaveExcelFile("C:\\Users\\WINDOWS 10\\Documents\\template.xlsx", "C:\\Users\\WINDOWS 10\\Documents\\danhgia - Copy.xlsx", namIn.Value.Year);
+                    ModifyAndSaveExcelFile(Constant.filePathExcelTemplate, Constant.filePathExcelDanhGia, namIn.Value.Year);
                     return;
 
                 }
@@ -1109,7 +1109,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            _parent.loadForm(new KhenThuongForm(_parent));
+            _parent.loadForm(new ReportForm(_parent));
             this.Close();
         }
 

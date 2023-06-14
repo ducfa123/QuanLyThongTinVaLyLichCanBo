@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class ListQTLuong : Form
+    public partial class RaiseSalaryDetailForm : Form
     {
-        private readonly RaiseSalary _parent;
+        private readonly RaiseSalaryForm _parent;
         public int MaLuong, MaCanBo, PhuCapChucVu, PhuCapKhac, BacLuong;
         public string KieuNangLuong, NgachCongChuc, NguoiThucHien;
         public DateTime NgayHuong;
@@ -136,7 +136,7 @@ namespace QuanLyThongTinVaLyLichCanBo
                 throw;
             }
         }
-        public ListQTLuong(RaiseSalary parent)
+        public RaiseSalaryDetailForm(RaiseSalaryForm parent)
         {
             InitializeComponent();
             _parent = parent;

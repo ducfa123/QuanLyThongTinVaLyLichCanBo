@@ -21,7 +21,7 @@ using Color = System.Drawing.Color;
 
 namespace QuanLyThongTinVaLyLichCanBo
 {
-    public partial class RaiseSalary : Form
+    public partial class RaiseSalaryForm : Form
     {
         private readonly MainForm _parent;
         private DataTable originalDataTable;
@@ -32,12 +32,12 @@ namespace QuanLyThongTinVaLyLichCanBo
         private int totalRecords; // Số lượng bản ghi tổng cộng
         private int totalPages; // Tính tổng số trang
         private int totalFilteredRecords;
-        public RaiseSalary()
+        public RaiseSalaryForm()
         {
             InitializeComponent();
         }
 
-        public RaiseSalary(MainForm parent)
+        public RaiseSalaryForm(MainForm parent)
         {
             InitializeComponent();
             _parent = parent;
@@ -289,7 +289,7 @@ namespace QuanLyThongTinVaLyLichCanBo
         {
             if (e.ColumnIndex == 0)
             {
-                ListQTLuong lsluong = new ListQTLuong(this);
+                RaiseSalaryDetailForm lsluong = new RaiseSalaryDetailForm(this);
                 int.TryParse(dtLuong.Rows[e.RowIndex].Cells[1].Value.ToString(), out lsluong.MaCanBo);
                 lsluong.NgachCongChuc = dtLuong.Rows[e.RowIndex].Cells[3].Value.ToString();
 
@@ -447,7 +447,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            _parent.loadForm(new RaiseSalary(_parent));
+            _parent.loadForm(new RaiseSalaryForm(_parent));
             this.Close();
         }
 

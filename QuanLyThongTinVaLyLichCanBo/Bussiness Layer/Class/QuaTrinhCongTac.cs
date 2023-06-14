@@ -17,11 +17,11 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
             this.macanbo = macanbo;
         }
 
-        public DateTime thoigianbatdaucongtac { get; set; } 
+        public DateTime thoigianbatdaucongtac { get; set; }
         public DateTime thoigianketthuccongtac { get; set; }
-        public string donvicongtac { get; set; }    
-        public string chucvucongtac { get; set; }  
-        
+        public string donvicongtac { get; set; }
+        public string chucvucongtac { get; set; }
+
         public int macanbo { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyThongTinVaLyLichCanBo.Class
 {
-    internal class KhenthuongController
+    internal class DbKhenthuong
     {
         public static void addKhenThuong(KhenThuong kt)
         {

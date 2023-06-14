@@ -12,7 +12,7 @@ namespace QuanLyThongTinVaLyLichCanBo.Class.Control
 {
     internal class DbAccount
     {
-        public static void addAccount(Account acc)
+        public static void addAccount(User acc)
         {
             using (SqlConnection sqlConnection = Connection.GetSqlConnection())
             {
@@ -20,17 +20,17 @@ namespace QuanLyThongTinVaLyLichCanBo.Class.Control
                 //thêm 1 cán bộ mới vào db
                 string query1 = "INSERT INTO ThongTinCanBo (HoTen) OUTPUT INSERTED.MaCanBo VALUES (@tencanbo)";
                 SqlCommand cmd1 = new SqlCommand(query1, sqlConnection);
-                cmd1.Parameters.AddWithValue("@tencanbo", MySqlDbType.VarChar).Value = acc.tencanbo;
+                cmd1.Parameters.AddWithValue("@tencanbo", MySqlDbType.VarChar).Value = acc.Tencanbo;
                 int macanbo = Convert.ToInt32(cmd1.ExecuteScalar());
 
                 //thêm tài khoản liên kết với mã cán bộ vừa rồi
                 string query = "INSERT INTO [User](UserName,Password,Email,PhoneNumber,Role,MaCanBo)" + "VALUES(@username,@password,@email,@phonenumber,@role,@macanbo)";
                 SqlCommand cmd = new SqlCommand(query, sqlConnection);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.AddWithValue("@username", MySqlDbType.VarChar).Value = acc.username;
-                cmd.Parameters.AddWithValue("@password", MySqlDbType.VarChar).Value = Connection.ComputeSha256Hash(acc.password);
-                cmd.Parameters.AddWithValue("@email", MySqlDbType.VarChar).Value = acc.email;
-                cmd.Parameters.AddWithValue("@phonenumber", MySqlDbType.VarChar).Value = acc.phonenumber;
+                cmd.Parameters.AddWithValue("@username", MySqlDbType.VarChar).Value = acc.Username;
+                cmd.Parameters.AddWithValue("@password", MySqlDbType.VarChar).Value = Connection.ComputeSha256Hash(acc.Password);
+                cmd.Parameters.AddWithValue("@email", MySqlDbType.VarChar).Value = acc.Email;
+                cmd.Parameters.AddWithValue("@phonenumber", MySqlDbType.VarChar).Value = acc.Phonenumber;
                 cmd.Parameters.AddWithValue("@role", "Can Bo");
                 cmd.Parameters.AddWithValue("@macanbo", MySqlDbType.VarChar).Value = macanbo;
                 try

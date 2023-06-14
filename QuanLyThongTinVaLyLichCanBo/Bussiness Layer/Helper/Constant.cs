@@ -45,6 +45,11 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
             "Chưa đủ điều kiện đánh giá"
         };
 
-
+        public static string filePathExcelTemplate = "C:\\Users\\WINDOWS 10\\Documents\\template.xlsx";
+        public static string filePathExcelThiDua = "C:\\Users\\WINDOWS 10\\Documents\\thidua - Copy.xlsx";
+        public static string filePathExcelKhenThuong = "C:\\Users\\WINDOWS 10\\Documents\\khenthuong - Copy.xlsx";
+        public static string filePathExcelKyLuat = "C:\\Users\\WINDOWS 10\\Documents\\kyluat - Copy.xlsx";
+        public static string filePathExcelDanhGia = "C:\\Users\\WINDOWS 10\\Documents\\danhgia - Copy.xlsx";
+        public static string filePathPNG = "C:\\Users\\WINDOWS 10\\Documents\\chart.png";
     }
 }

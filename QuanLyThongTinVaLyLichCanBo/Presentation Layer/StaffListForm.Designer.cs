@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class ListCanbo
+    partial class StaffListForm
     {
         /// <summary>
         /// Required designer variable.

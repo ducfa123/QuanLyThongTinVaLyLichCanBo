@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyThongTinVaLyLichCanBo.Class
 {
-    internal class KyluatController
+    internal class DbKyluat
     {
         public static void addKyluat(Kyluat kl)
         {

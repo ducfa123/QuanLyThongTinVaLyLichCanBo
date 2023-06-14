@@ -172,8 +172,8 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void iconButton5_Click(object sender, EventArgs e)
         {
-            RewardForm kt = new RewardForm(this);
-            loadForm(new RewardForm(this));
+            ReportForm kt = new ReportForm(this);
+            loadForm(new ReportForm(this));
         }
 
         private void iconButton6_Click(object sender, EventArgs e)

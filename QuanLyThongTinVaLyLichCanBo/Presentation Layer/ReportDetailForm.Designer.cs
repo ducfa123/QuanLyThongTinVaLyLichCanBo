@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThongTinVaLyLichCanBo
 {
-    partial class RewardDetailForm
+    partial class ReportDetailForm
     {
         /// <summary>
         /// Required designer variable.

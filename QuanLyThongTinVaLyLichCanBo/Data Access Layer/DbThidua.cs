@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyThongTinVaLyLichCanBo.Class
 {
-    internal class ThiduaController
+    internal class DbThidua
     {
         public static void addThidua(Thidua td)
         {

@@ -8,9 +8,14 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
 {
     internal class Kyluat
     {
-        public string HinhThucKyLuat, SoQuyetDinh, CoQuanBanHanh, NoiDung;
-        public int MaKyLuat,MaCanBo, ThoiGianKeoDai;
-        public DateTime NgayKy;
+        public string HinhThucKyLuat { get; set; }
+        public string SoQuyetDinh { get; set; }
+        public string CoQuanBanHanh { get; set; }
+        public string NoiDung { get; set; }
+        public int MaKyLuat { get; set; }
+        public int MaCanBo { get; set; }
+        public int ThoiGianKeoDai { get; set; }
+        public DateTime NgayKy { get; set; }
 
         public Kyluat(string hinhThucKyLuat, string soQuyetDinh, string coQuanBanHanh, string noiDung, int maCanBo, int thoiGianKeoDai, DateTime ngayKy)
         {

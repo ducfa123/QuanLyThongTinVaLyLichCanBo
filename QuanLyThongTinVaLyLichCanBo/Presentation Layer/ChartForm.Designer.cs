@@ -28,43 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tabControl1 = new TabControl();
+            dotuoiChart = new TabControl();
             tabGender = new TabPage();
-            pieChart1 = new LiveCharts.WinForms.PieChart();
+            xuatPdfBtn1 = new FontAwesome.Sharp.IconButton();
+            gioitinhChart = new LiveCharts.WinForms.PieChart();
             label4 = new Label();
             tabAge = new TabPage();
-            cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            xuatPdfBtn2 = new FontAwesome.Sharp.IconButton();
+            tuoiChart = new LiveCharts.WinForms.CartesianChart();
             label1 = new Label();
             tabHeatlh = new TabPage();
-            cartesianChart2 = new LiveCharts.WinForms.CartesianChart();
+            xuatpdfBtn3 = new FontAwesome.Sharp.IconButton();
+            healchart = new LiveCharts.WinForms.CartesianChart();
             label2 = new Label();
             tabDanToc = new TabPage();
+            xuatPdf4 = new FontAwesome.Sharp.IconButton();
+            dantocChart = new LiveCharts.WinForms.CartesianChart();
             label3 = new Label();
-            cartesianChart3 = new LiveCharts.WinForms.CartesianChart();
-            tabControl1.SuspendLayout();
+            dotuoiChart.SuspendLayout();
             tabGender.SuspendLayout();
             tabAge.SuspendLayout();
             tabHeatlh.SuspendLayout();
             tabDanToc.SuspendLayout();
             SuspendLayout();
             // 
-            // tabControl1
+            // dotuoiChart
             // 
-            tabControl1.Controls.Add(tabGender);
-            tabControl1.Controls.Add(tabAge);
-            tabControl1.Controls.Add(tabHeatlh);
-            tabControl1.Controls.Add(tabDanToc);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1300, 720);
-            tabControl1.TabIndex = 0;
-            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            dotuoiChart.Controls.Add(tabGender);
+            dotuoiChart.Controls.Add(tabAge);
+            dotuoiChart.Controls.Add(tabHeatlh);
+            dotuoiChart.Controls.Add(tabDanToc);
+            dotuoiChart.Dock = DockStyle.Fill;
+            dotuoiChart.Location = new Point(0, 0);
+            dotuoiChart.Name = "dotuoiChart";
+            dotuoiChart.SelectedIndex = 0;
+            dotuoiChart.Size = new Size(1300, 720);
+            dotuoiChart.TabIndex = 0;
+            dotuoiChart.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabGender
             // 
-            tabGender.Controls.Add(pieChart1);
+            tabGender.Controls.Add(xuatPdfBtn1);
+            tabGender.Controls.Add(gioitinhChart);
             tabGender.Controls.Add(label4);
             tabGender.Location = new Point(4, 29);
             tabGender.Name = "tabGender";
@@ -74,13 +79,35 @@
             tabGender.Text = "Thống kê theo giới tính";
             tabGender.UseVisualStyleBackColor = true;
             // 
-            // pieChart1
+            // xuatPdfBtn1
             // 
-            pieChart1.Location = new Point(40, 67);
-            pieChart1.Name = "pieChart1";
-            pieChart1.Size = new Size(1209, 584);
-            pieChart1.TabIndex = 304;
-            pieChart1.Text = "pieChart1";
+            xuatPdfBtn1.AllowDrop = true;
+            xuatPdfBtn1.BackColor = Color.DodgerBlue;
+            xuatPdfBtn1.Cursor = Cursors.Hand;
+            xuatPdfBtn1.FlatAppearance.BorderSize = 0;
+            xuatPdfBtn1.FlatStyle = FlatStyle.Flat;
+            xuatPdfBtn1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            xuatPdfBtn1.ForeColor = Color.White;
+            xuatPdfBtn1.IconChar = FontAwesome.Sharp.IconChar.Image;
+            xuatPdfBtn1.IconColor = Color.White;
+            xuatPdfBtn1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            xuatPdfBtn1.IconSize = 32;
+            xuatPdfBtn1.ImageAlign = ContentAlignment.MiddleLeft;
+            xuatPdfBtn1.Location = new Point(1013, 15);
+            xuatPdfBtn1.Name = "xuatPdfBtn1";
+            xuatPdfBtn1.Size = new Size(160, 46);
+            xuatPdfBtn1.TabIndex = 308;
+            xuatPdfBtn1.Text = "     Xuất hình ảnh";
+            xuatPdfBtn1.UseVisualStyleBackColor = false;
+            xuatPdfBtn1.Click += xuatPdfBtn1_Click;
+            // 
+            // gioitinhChart
+            // 
+            gioitinhChart.Location = new Point(40, 67);
+            gioitinhChart.Name = "gioitinhChart";
+            gioitinhChart.Size = new Size(1209, 584);
+            gioitinhChart.TabIndex = 304;
+            gioitinhChart.Text = "pieChart1";
             // 
             // label4
             // 
@@ -95,7 +122,8 @@
             // 
             // tabAge
             // 
-            tabAge.Controls.Add(cartesianChart1);
+            tabAge.Controls.Add(xuatPdfBtn2);
+            tabAge.Controls.Add(tuoiChart);
             tabAge.Controls.Add(label1);
             tabAge.Location = new Point(4, 29);
             tabAge.Name = "tabAge";
@@ -105,14 +133,36 @@
             tabAge.Text = "Thống kê theo độ tuổi";
             tabAge.UseVisualStyleBackColor = true;
             // 
-            // cartesianChart1
+            // xuatPdfBtn2
             // 
-            cartesianChart1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            cartesianChart1.Location = new Point(40, 67);
-            cartesianChart1.Name = "cartesianChart1";
-            cartesianChart1.Size = new Size(1209, 584);
-            cartesianChart1.TabIndex = 305;
-            cartesianChart1.Text = "cartesianChart1";
+            xuatPdfBtn2.AllowDrop = true;
+            xuatPdfBtn2.BackColor = Color.DodgerBlue;
+            xuatPdfBtn2.Cursor = Cursors.Hand;
+            xuatPdfBtn2.FlatAppearance.BorderSize = 0;
+            xuatPdfBtn2.FlatStyle = FlatStyle.Flat;
+            xuatPdfBtn2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            xuatPdfBtn2.ForeColor = Color.White;
+            xuatPdfBtn2.IconChar = FontAwesome.Sharp.IconChar.Image;
+            xuatPdfBtn2.IconColor = Color.White;
+            xuatPdfBtn2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            xuatPdfBtn2.IconSize = 32;
+            xuatPdfBtn2.ImageAlign = ContentAlignment.MiddleLeft;
+            xuatPdfBtn2.Location = new Point(1013, 15);
+            xuatPdfBtn2.Name = "xuatPdfBtn2";
+            xuatPdfBtn2.Size = new Size(160, 46);
+            xuatPdfBtn2.TabIndex = 308;
+            xuatPdfBtn2.Text = "     Xuất hình ảnh";
+            xuatPdfBtn2.UseVisualStyleBackColor = false;
+            xuatPdfBtn2.Click += xuatPdfBtn2_Click;
+            // 
+            // tuoiChart
+            // 
+            tuoiChart.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            tuoiChart.Location = new Point(40, 67);
+            tuoiChart.Name = "tuoiChart";
+            tuoiChart.Size = new Size(1209, 584);
+            tuoiChart.TabIndex = 305;
+            tuoiChart.Text = "cartesianChart1";
             // 
             // label1
             // 
@@ -127,7 +177,8 @@
             // 
             // tabHeatlh
             // 
-            tabHeatlh.Controls.Add(cartesianChart2);
+            tabHeatlh.Controls.Add(xuatpdfBtn3);
+            tabHeatlh.Controls.Add(healchart);
             tabHeatlh.Controls.Add(label2);
             tabHeatlh.Location = new Point(4, 29);
             tabHeatlh.Name = "tabHeatlh";
@@ -137,13 +188,34 @@
             tabHeatlh.Text = "Thống kê theo sức khỏe";
             tabHeatlh.UseVisualStyleBackColor = true;
             // 
-            // cartesianChart2
+            // xuatpdfBtn3
             // 
-            cartesianChart2.Location = new Point(40, 67);
-            cartesianChart2.Name = "cartesianChart2";
-            cartesianChart2.Size = new Size(1209, 584);
-            cartesianChart2.TabIndex = 306;
-            cartesianChart2.Text = "cartesianChart2";
+            xuatpdfBtn3.AllowDrop = true;
+            xuatpdfBtn3.BackColor = Color.DodgerBlue;
+            xuatpdfBtn3.Cursor = Cursors.Hand;
+            xuatpdfBtn3.FlatAppearance.BorderSize = 0;
+            xuatpdfBtn3.FlatStyle = FlatStyle.Flat;
+            xuatpdfBtn3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            xuatpdfBtn3.ForeColor = Color.White;
+            xuatpdfBtn3.IconChar = FontAwesome.Sharp.IconChar.Image;
+            xuatpdfBtn3.IconColor = Color.White;
+            xuatpdfBtn3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            xuatpdfBtn3.IconSize = 32;
+            xuatpdfBtn3.ImageAlign = ContentAlignment.MiddleLeft;
+            xuatpdfBtn3.Location = new Point(1013, 15);
+            xuatpdfBtn3.Name = "xuatpdfBtn3";
+            xuatpdfBtn3.Size = new Size(160, 46);
+            xuatpdfBtn3.TabIndex = 307;
+            xuatpdfBtn3.Text = "     Xuất hình ảnh";
+            xuatpdfBtn3.UseVisualStyleBackColor = false;
+            xuatpdfBtn3.Click += xuatPDF_Click;
+            // 
+            // healchart
+            // 
+            healchart.Location = new Point(40, 67);
+            healchart.Name = "healchart";
+            healchart.Size = new Size(1209, 584);
+            healchart.TabIndex = 306;
             // 
             // label2
             // 
@@ -158,7 +230,8 @@
             // 
             // tabDanToc
             // 
-            tabDanToc.Controls.Add(cartesianChart3);
+            tabDanToc.Controls.Add(xuatPdf4);
+            tabDanToc.Controls.Add(dantocChart);
             tabDanToc.Controls.Add(label3);
             tabDanToc.Location = new Point(4, 29);
             tabDanToc.Name = "tabDanToc";
@@ -166,6 +239,36 @@
             tabDanToc.TabIndex = 3;
             tabDanToc.Text = "Thống kê theo dân tộc";
             tabDanToc.UseVisualStyleBackColor = true;
+            // 
+            // xuatPdf4
+            // 
+            xuatPdf4.AllowDrop = true;
+            xuatPdf4.BackColor = Color.DodgerBlue;
+            xuatPdf4.Cursor = Cursors.Hand;
+            xuatPdf4.FlatAppearance.BorderSize = 0;
+            xuatPdf4.FlatStyle = FlatStyle.Flat;
+            xuatPdf4.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            xuatPdf4.ForeColor = Color.White;
+            xuatPdf4.IconChar = FontAwesome.Sharp.IconChar.Image;
+            xuatPdf4.IconColor = Color.White;
+            xuatPdf4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            xuatPdf4.IconSize = 32;
+            xuatPdf4.ImageAlign = ContentAlignment.MiddleLeft;
+            xuatPdf4.Location = new Point(1013, 15);
+            xuatPdf4.Name = "xuatPdf4";
+            xuatPdf4.Size = new Size(160, 46);
+            xuatPdf4.TabIndex = 308;
+            xuatPdf4.Text = "     Xuất hình ảnh";
+            xuatPdf4.UseVisualStyleBackColor = false;
+            xuatPdf4.Click += xuatPdf4_Click;
+            // 
+            // dantocChart
+            // 
+            dantocChart.Location = new Point(40, 67);
+            dantocChart.Name = "dantocChart";
+            dantocChart.Size = new Size(1209, 584);
+            dantocChart.TabIndex = 306;
+            dantocChart.Text = "cartesianChart3";
             // 
             // label3
             // 
@@ -178,25 +281,17 @@
             label3.TabIndex = 305;
             label3.Text = "Dân tộc";
             // 
-            // cartesianChart3
-            // 
-            cartesianChart3.Location = new Point(40, 67);
-            cartesianChart3.Name = "cartesianChart3";
-            cartesianChart3.Size = new Size(1209, 584);
-            cartesianChart3.TabIndex = 306;
-            cartesianChart3.Text = "cartesianChart3";
-            // 
             // ChartForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1300, 720);
-            Controls.Add(tabControl1);
+            Controls.Add(dotuoiChart);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ChartForm";
             Text = "ChartForm";
             Load += ChartForm_Load;
-            tabControl1.ResumeLayout(false);
+            dotuoiChart.ResumeLayout(false);
             tabGender.ResumeLayout(false);
             tabGender.PerformLayout();
             tabAge.ResumeLayout(false);
@@ -210,7 +305,7 @@
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl dotuoiChart;
         private TabPage tabGender;
         private TabPage tabAge;
         private TabPage tabHeatlh;
@@ -219,9 +314,13 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
-        private LiveCharts.WinForms.PieChart pieChart1;
-        private LiveCharts.WinForms.CartesianChart cartesianChart2;
-        private LiveCharts.WinForms.CartesianChart cartesianChart3;
+        private LiveCharts.WinForms.CartesianChart tuoiChart;
+        private LiveCharts.WinForms.PieChart gioitinhChart;
+        private LiveCharts.WinForms.CartesianChart healchart;
+        private LiveCharts.WinForms.CartesianChart dantocChart;
+        private FontAwesome.Sharp.IconButton xuatpdfBtn3;
+        private FontAwesome.Sharp.IconButton xuatPdfBtn1;
+        private FontAwesome.Sharp.IconButton xuatPdfBtn2;
+        private FontAwesome.Sharp.IconButton xuatPdf4;
     }
 }
