@@ -326,22 +326,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (tabControl1.SelectedTab == tabGender)
-            //{
-            //    DisplayGender();
-            //}
-            //else if (tabControl1.SelectedTab == tabAge)
-            //{
-            //    DisplayAge();
-            //}
-            //else if (tabControl1.SelectedTab == tabHeatlh)
-            //{
-            //    DisplayHealth();
-            //}
-            //else if (tabControl1.SelectedTab == tabDanToc)
-            //{
-            //    DisplayDanToc();
-            //}
+           
         }
         private void xuatPDF_Click(object sender, EventArgs e)
         {

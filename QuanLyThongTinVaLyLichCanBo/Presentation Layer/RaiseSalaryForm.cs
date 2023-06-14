@@ -567,6 +567,7 @@ namespace QuanLyThongTinVaLyLichCanBo
         }
         public void ModifyAndSaveExcelFile(string filePath, string newFilePath)
         {
+            dtLuong.DataSource = originalDataTable;
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
             DatabaseManager dbManager = new DatabaseManager();
             using (var package = new ExcelPackage(new FileInfo(filePath)))
@@ -686,6 +687,7 @@ namespace QuanLyThongTinVaLyLichCanBo
 
                 // Lưu file Excel mới
                 package.SaveAs(new FileInfo(newFilePath));
+                Display(currentPageIndex, pageSize, out totalRecords);
                 MessageBox.Show("Thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Process.Start(new ProcessStartInfo { FileName = newFilePath, UseShellExecute = true });
 
@@ -696,7 +698,7 @@ namespace QuanLyThongTinVaLyLichCanBo
             if (MessageBox.Show("Bạn có muốn xuất excel danh sách tổng hợp quỹ lương?", "Infomation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                ModifyAndSaveExcelFile("C:\\Users\\WINDOWS 10\\Documents\\template.xlsx", "C:\\Users\\WINDOWS 10\\Documents\\luong - Copy.xlsx");
+                ModifyAndSaveExcelFile(Constant.filePathExcelTemplate, Constant.filePathExcelLuong);
 
             }
         }

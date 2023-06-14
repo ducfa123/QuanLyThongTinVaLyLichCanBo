@@ -51,5 +51,6 @@ namespace QuanLyThongTinVaLyLichCanBo.Class
         public static string filePathExcelKyLuat = "C:\\Users\\WINDOWS 10\\Documents\\kyluat - Copy.xlsx";
         public static string filePathExcelDanhGia = "C:\\Users\\WINDOWS 10\\Documents\\danhgia - Copy.xlsx";
         public static string filePathPNG = "C:\\Users\\WINDOWS 10\\Documents\\chart.png";
+        public static string filePathExcelLuong = "C:\\Users\\WINDOWS 10\\Documents\\luong - Copy.xlsx";
     }
 }
